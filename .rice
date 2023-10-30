@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo "Ricing your desktop..."
+{
+  wallpapers=(/usr/share/wallpapers/*)
+  wal -q -i "${wallpapers[$(( $RANDOM % ${#wallpapers[@]} ))]}" && \
+  . ~/.cache/wal/colors.sh
+  xwallpaper --zoom "$wallpaper" &
+  oomox-cli -o pywal ~/.config/scripted_colors/xresources/xresources &
+  oomox-archdroid-icons-cli -o pywal ~/.config/scripted_colors/xresources/xresources-reverse &
+} > /dev/null
+
+sleep 5
+echo "Ricing done! 󰟪"
